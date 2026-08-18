@@ -3,199 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name - Engineering Portfolio</title>
+  <title>Kevin Sanchez Ramos — Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
-    <div class="logo">YOUR <span>NAME</span></div>
+    <a href="#" class="logo">Kevin <span>Sanchez Ramos</span></a>
     <ul class="nav-links">
-      <li><a href="#projects">PROJECTS</a></li>
-      <li><a href="#experience">EXPERIENCE</a></li>
-      <li><a href="#skills">SKILLS</a></li>
-      <li><a href="resume.pdf" target="_blank">RESUME</a></li>
-      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero">
-    <p class="section-label">ENGINEERING PORTFOLIO</p>
-    <h1>Your Name</h1>
-    <p class="tagline">Mechanical Design & Systems Engineering</p>
-    <p class="bio">
-      Engineering student passionate about building real-world hardware. Experienced in technical leadership, CAD design, rapid prototyping, and system testing.
+  <header class="hero" id="home">
+    <div class="hero-grid-bg"></div>
+    <p class="hero-tag">Engineering Portfolio</p>
+    <h1>Kevin<br><span>Sanchez Ramos</span></h1>
+    <p class="hero-sub">Mechanical Design & Systems Engineering — UCF Aerospace Engineering</p>
+    <p class="hero-desc">
+      Aerospace Engineering student at the University of Central Florida graduating Spring 2028. I enjoy building things from Rockets, Planes, Drones, Satellites and Communication Subsystems! I specialize in researching, designing, and testing complex systems such as control gyros and enjoy tinkering and improving machines.
     </p>
 
-    <!-- Skill Tags -->
-    <div class="tags">
-      <span class="tag">SolidWorks</span>
-      <span class="tag">Onshape</span>
-      <span class="tag">Python</span>
-      <span class="tag">3D Printing</span>
-      <span class="tag highlight">3.83 GPA</span>
+    <!-- Skill Pills -->
+    <div class="pills">
+      <span class="pill">SolidWorks</span>
+      <span class="pill">Onshape</span>
+      <span class="pill">Fusion 360</span>
+      <span class="pill">OpenRocket</span>
+      <span class="pill">Additive Manufacturing</span>
+      <span class="pill">Soldering</span>
+      <span class="pill gold">C & Python</span>
     </div>
 
-    <!-- Contact Info -->
-    <div class="contact-info" id="contact">
-      <span>✉️ your.email@example.com</span>
-      <span>📞 (123) 456-7890</span>
-      <span>📍 Your City, ST</span>
-    </div>
-
-    <!-- Top Impact Metrics Box -->
-    <div class="metrics-container">
-      <div class="metric-card">
-        <h3>410 ft</h3>
-        <p>MAX ALTITUDE REACHED</p>
-      </div>
-      <div class="metric-card">
-        <h3>120k ft</h3>
-        <p>PEAK FLIGHT ALTITUDE</p>
-      </div>
-      <div class="metric-card">
-        <h3>400 lb</h3>
-        <p>STATIC LOAD TESTED</p>
-      </div>
-      <div class="metric-card">
-        <h3>$115k</h3>
-        <p>PROJECT BUDGET MANAGED</p>
-      </div>
+    <!-- Contact Links -->
+    <div class="hero-contact" id="contact">
+      <a href="mailto:kevinsanchezramos870@gmail.com">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        kevinsanchezramos870@gmail.com
+      </a>
+      <a href="tel:2396878202">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.23 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (239) 687-8202
+      </a>
+      <a href="#">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Orlando, FL
+      </a>
     </div>
   </header>
 
+  <!-- Impact Metrics Bar -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">410 ft</div>
+      <div class="stat-lbl">Max Tethered Altitude</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">120k ft</div>
+      <div class="stat-lbl">HAB Flight Altitude</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">400 lb</div>
+      <div class="stat-lbl">Static Load Tested</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$115k</div>
+      <div class="stat-lbl">Damage Cost Reduction</div>
+    </div>
+  </div>
+
   <!-- Projects Section -->
-  <section id="projects" class="section">
-    <p class="section-label">ENGINEERING PORTFOLIO</p>
-    <h2>Projects</h2>
-    <p class="section-desc">Hands-on hardware development spanning custom mechanical builds, testing, and deployment.</p>
+  <section id="projects">
+    <div class="sec-hdr">
+      <div>
+        <p class="sec-lbl">Engineering Portfolio</p>
+        <h2 class="sec-title">Projects</h2>
+        <p class="sec-sub">Hands-on aerospace hardware spanning CubeSat development, HAB missions, and rocketry subsystems.</p>
+      </div>
+      <div class="sec-line"></div>
+    </div>
 
     <!-- Project Card 1 -->
-    <article class="project-card">
-      <div class="project-header">
-        <div class="badges">
-          <span class="badge">PROJECT • TAG</span>
-          <span class="badge secondary">HARDWARE</span>
+    <div class="project-card">
+      <div class="ph">
+        <div>
+          <div class="pm">
+            <span class="pt">KSC · UCF</span>
+            <span class="pt">CubeSat</span>
+            <span class="pd">Sept 2023 – July 2025</span>
+          </div>
+          <h3 class="ptt">Tethered Satellite — T-Sat 0 & 1</h3>
+          <p class="pr">Mechanical Team Lead</p>
         </div>
-        <span class="project-date">Sept 2024 – Present</span>
-      </div>
-
-      <h3 class="project-title">Tethered Satellite System Project</h3>
-      <p class="project-role">Mechanical Team Lead</p>
-
-      <!-- Mini Specs Grid -->
-      <div class="project-specs">
-        <div class="spec">
-          <h4>1U</h4>
-          <p>FORM FACTOR</p>
-        </div>
-        <div class="spec">
-          <h4>410 ft</h4>
-          <p>MAX ALTITUDE</p>
-        </div>
-        <div class="spec">
-          <h4>80 m</h4>
-          <p>DEPLOY THRESHOLD</p>
-        </div>
-        <div class="spec">
-          <h4>3</h4>
-          <p>FLIGHT TESTS</p>
-        </div>
-      </div>
-
-      <p class="project-details">
-        Detailed description of your engineering project. Explain the goal of the project, what tools you used, and what you accomplished. Explain how you validated your design through physical testing.
-      </p>
-
-      <!-- Highlight Cards Grid -->
-      <div class="highlights-grid">
-        <div class="highlight-card check">
-          <span class="icon">✓</span>
-          <p>Designed and manufactured custom enclosure using FDM 3D printing and CAD modeling.</p>
-        </div>
-        <div class="highlight-card check">
-          <span class="icon">✓</span>
-          <p>Integrated microcontrollers, actuators, and sensor payload into a compact form factor.</p>
-        </div>
-        <div class="highlight-card star">
-          <span class="icon">★</span>
-          <p>Achieved 100% mission success rate across 3 consecutive deployment flight tests.</p>
-        </div>
-        <div class="highlight-card star">
-          <span class="icon">★</span>
-          <p>Open-sourced complete CAD files and assembly documentation on GitHub for the team.</p>
+        <div class="mets">
+          <div class="met">
+            <div class="met-v">1U</div>
+            <div class="met-l">CubeSat Form</div>
+          </div>
+          <div class="met">
+            <div class="met-v">410 ft</div>
+            <div class="met-l">Max Altitude</div>
+          </div>
+          <div class="met">
+            <div class="met-v">80 m</div>
+            <div class="met-l">Deploy Threshold</div>
+          </div>
+          <div class="met">
+            <div class="met-v">3</div>
+            <div class="met-l">Flights</div>
+          </div>
         </div>
       </div>
-    </article>
+
+      <div class="pb">
+        <div class="desc">
+          <p>Tethered-Sat is the Knights Satellite Club's balloon-based 1U CubeSat platform built to give new members end-to-end mission experience within a semester. T-Sat-0 validated the full mission stack: CubeSat bus, spring-activated Parachute Deployment System (PDS), burn-wire tether release, and onboard sensing.</p>
+        </div>
+
+        <!-- Highlight Bullets -->
+        <div class="hl">
+          <div class="hi">
+            <svg class="hic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="ht">Spring-activated PDS with open-top canister; multiple FDM iterations validated by drop testing.</span>
+          </div>
+          <div class="hi">
+            <svg class="hic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="ht">Integrated PCB, servo actuator, burn-wire release, and onboard camera into 1U form factor.</span>
+          </div>
+          <div class="hi gb">
+            <svg class="hic g" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span class="ht">T-Sat-1 mission success: 125 m max altitude, correct burn-wire release, parachute deploy at 80 m.</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="section">
-    <p class="section-label">WORK & RESEARCH</p>
-    <h2>Experience</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="timeline-date">May 2025 – Present</span>
-          <h3>Vice President – Engineering Organization</h3>
-          <p class="timeline-subtitle">University Name (500+ Members)</p>
-          <p>Lead engineering design initiatives, coordinate technical workshops, manage event logistics, and direct team project deadlines.</p>
-        </div>
+  <section id="experience">
+    <div class="sec-hdr">
+      <div>
+        <p class="sec-lbl">Work & Research</p>
+        <h2 class="sec-title">Experience</h2>
       </div>
+      <div class="sec-line"></div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="timeline-date">Feb 2024 – Apr 2025</span>
-          <h3>Undergraduate Research Assistant</h3>
-          <p class="timeline-subtitle">University Engineering Lab</p>
-          <p>Assisted in mechanical testing, performed finite element analysis (FEA), and documented experimental data for publication.</p>
-        </div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld">May 2025 – Present</div>
+        <div class="tlt">Vice President – Knights Satellite Club</div>
+        <div class="tlo">University of Central Florida (600+ Members)</div>
+        <p class="tldesc">Leads committee planning for professional development, aerospace employer tours, and logistics for major student conferences.</p>
+      </div>
+      <div class="tli">
+        <div class="tld">Feb 2023 – Apr 2025</div>
+        <div class="tlt">Board Secretary – Knights Satellite Club</div>
+        <div class="tlo">University of Central Florida</div>
+        <p class="tldesc">Managed scheduling, task delegation, outreach materials, and secured sponsorship for club projects.</p>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section">
-    <p class="section-label">TECHNICAL PROFICIENCY</p>
-    <h2>Skills</h2>
+  <section id="skills">
+    <div class="sec-hdr">
+      <div>
+        <p class="sec-lbl">Technical Proficiency</p>
+        <h2 class="sec-title">Skills</h2>
+      </div>
+      <div class="sec-line"></div>
+    </div>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>CAD / DESIGN</h3>
-        <ul>
+    <div class="sgrid">
+      <div class="scat">
+        <div class="scat-t">CAD / Design</div>
+        <ul class="sl">
           <li>SolidWorks</li>
           <li>Onshape</li>
-          <li>GD&T / ASME Y14.5</li>
-          <li>SolidWorks Simulation</li>
+          <li>Fusion 360</li>
+          <li>OpenRocket</li>
         </ul>
       </div>
 
-      <div class="skill-card">
-        <h3>MANUFACTURING</h3>
-        <ul>
-          <li>FDM & SLA 3D Printing</li>
-          <li>Machining & Milling</li>
-          <li>Precision Assembly</li>
-          <li>Soldering / Electronics</li>
+      <div class="scat">
+        <div class="scat-t">Manufacturing</div>
+        <ul class="sl">
+          <li>Additive Manufacturing (3D Printing)</li>
+          <li>Soldering / Wiring</li>
+          <li>Precision Machining</li>
         </ul>
       </div>
 
-      <div class="skill-card">
-        <h3>ANALYSIS & TOOLS</h3>
-        <ul>
-          <li>Ansys FEA</li>
-          <li>Python / MATLAB</li>
-          <li>Git / Version Control</li>
-          <li>Technical Documentation</li>
+      <div class="scat">
+        <div class="scat-t">Software & Tools</div>
+        <ul class="sl">
+          <li>C Programming</li>
+          <li>Python</li>
+          <li>Git / GitHub</li>
         </ul>
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="fn">Kevin <span>Sanchez Ramos</span></div>
+    <div class="fl">
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
 
 </body>
 </html>

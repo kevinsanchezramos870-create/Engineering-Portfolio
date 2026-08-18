@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Name - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation Bar -->
   <nav class="navbar">
-    <div class="logo">YOUR NAME</div>
+    <div class="logo">YOUR <span>NAME</span></div>
     <ul class="nav-links">
       <li><a href="#projects">PROJECTS</a></li>
       <li><a href="#experience">EXPERIENCE</a></li>
@@ -17,22 +20,182 @@
     </ul>
   </nav>
 
-  <section class="hero">
-    <p class="subtitle">ENGINEERING PORTFOLIO</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <p class="section-label">ENGINEERING PORTFOLIO</p>
     <h1>Your Name</h1>
-    <p class="tagline">Your Major & Focus Area</p>
-    <p class="bio">A brief overview of your background, achievements, and technical focus.</p>
-    
+    <p class="tagline">Mechanical Design & Systems Engineering</p>
+    <p class="bio">
+      Engineering student passionate about building real-world hardware. Experienced in technical leadership, CAD design, rapid prototyping, and system testing.
+    </p>
+
+    <!-- Skill Tags -->
     <div class="tags">
       <span class="tag">SolidWorks</span>
+      <span class="tag">Onshape</span>
       <span class="tag">Python</span>
-      <span class="tag highlight">3.8 GPA</span>
+      <span class="tag">3D Printing</span>
+      <span class="tag highlight">3.83 GPA</span>
     </div>
 
-    <div class="contact-info">
-      <span>📧 email@example.com</span>
-      <span>📍 Location</span>
+    <!-- Contact Info -->
+    <div class="contact-info" id="contact">
+      <span>✉️ your.email@example.com</span>
+      <span>📞 (123) 456-7890</span>
+      <span>📍 Your City, ST</span>
+    </div>
+
+    <!-- Top Impact Metrics Box -->
+    <div class="metrics-container">
+      <div class="metric-card">
+        <h3>410 ft</h3>
+        <p>MAX ALTITUDE REACHED</p>
+      </div>
+      <div class="metric-card">
+        <h3>120k ft</h3>
+        <p>PEAK FLIGHT ALTITUDE</p>
+      </div>
+      <div class="metric-card">
+        <h3>400 lb</h3>
+        <p>STATIC LOAD TESTED</p>
+      </div>
+      <div class="metric-card">
+        <h3>$115k</h3>
+        <p>PROJECT BUDGET MANAGED</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <p class="section-label">ENGINEERING PORTFOLIO</p>
+    <h2>Projects</h2>
+    <p class="section-desc">Hands-on hardware development spanning custom mechanical builds, testing, and deployment.</p>
+
+    <!-- Project Card 1 -->
+    <article class="project-card">
+      <div class="project-header">
+        <div class="badges">
+          <span class="badge">PROJECT • TAG</span>
+          <span class="badge secondary">HARDWARE</span>
+        </div>
+        <span class="project-date">Sept 2024 – Present</span>
+      </div>
+
+      <h3 class="project-title">Tethered Satellite System Project</h3>
+      <p class="project-role">Mechanical Team Lead</p>
+
+      <!-- Mini Specs Grid -->
+      <div class="project-specs">
+        <div class="spec">
+          <h4>1U</h4>
+          <p>FORM FACTOR</p>
+        </div>
+        <div class="spec">
+          <h4>410 ft</h4>
+          <p>MAX ALTITUDE</p>
+        </div>
+        <div class="spec">
+          <h4>80 m</h4>
+          <p>DEPLOY THRESHOLD</p>
+        </div>
+        <div class="spec">
+          <h4>3</h4>
+          <p>FLIGHT TESTS</p>
+        </div>
+      </div>
+
+      <p class="project-details">
+        Detailed description of your engineering project. Explain the goal of the project, what tools you used, and what you accomplished. Explain how you validated your design through physical testing.
+      </p>
+
+      <!-- Highlight Cards Grid -->
+      <div class="highlights-grid">
+        <div class="highlight-card check">
+          <span class="icon">✓</span>
+          <p>Designed and manufactured custom enclosure using FDM 3D printing and CAD modeling.</p>
+        </div>
+        <div class="highlight-card check">
+          <span class="icon">✓</span>
+          <p>Integrated microcontrollers, actuators, and sensor payload into a compact form factor.</p>
+        </div>
+        <div class="highlight-card star">
+          <span class="icon">★</span>
+          <p>Achieved 100% mission success rate across 3 consecutive deployment flight tests.</p>
+        </div>
+        <div class="highlight-card star">
+          <span class="icon">★</span>
+          <p>Open-sourced complete CAD files and assembly documentation on GitHub for the team.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <p class="section-label">WORK & RESEARCH</p>
+    <h2>Experience</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">May 2025 – Present</span>
+          <h3>Vice President – Engineering Organization</h3>
+          <p class="timeline-subtitle">University Name (500+ Members)</p>
+          <p>Lead engineering design initiatives, coordinate technical workshops, manage event logistics, and direct team project deadlines.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">Feb 2024 – Apr 2025</span>
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="timeline-subtitle">University Engineering Lab</p>
+          <p>Assisted in mechanical testing, performed finite element analysis (FEA), and documented experimental data for publication.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <p class="section-label">TECHNICAL PROFICIENCY</p>
+    <h2>Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>CAD / DESIGN</h3>
+        <ul>
+          <li>SolidWorks</li>
+          <li>Onshape</li>
+          <li>GD&T / ASME Y14.5</li>
+          <li>SolidWorks Simulation</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>MANUFACTURING</h3>
+        <ul>
+          <li>FDM & SLA 3D Printing</li>
+          <li>Machining & Milling</li>
+          <li>Precision Assembly</li>
+          <li>Soldering / Electronics</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>ANALYSIS & TOOLS</h3>
+        <ul>
+          <li>Ansys FEA</li>
+          <li>Python / MATLAB</li>
+          <li>Git / Version Control</li>
+          <li>Technical Documentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

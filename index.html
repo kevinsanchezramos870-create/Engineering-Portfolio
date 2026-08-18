@@ -1,226 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kevin Sanchez Ramos — Engineering Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Sanchez Ramos - Engineering Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-orange: #f59e0b;
+            --accent-blue: #38bdf8;
+            --border-color: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background-color: rgba(13, 17, 23, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        /* Hero Section */
+        .hero-subtitle {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-subtitle::before {
+            content: "";
+            display: inline-block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-blue);
+            margin-right: 15px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            color: var(--accent-orange);
+            display: block;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin: 6rem 0 3rem 0;
+        }
+
+        .section-header h3 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .org-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-role {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-desc {
+            margin-bottom: 2rem;
+        }
+
+        .project-bullets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .bullet-item {
+            display: flex;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .project-bullets { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; gap: 0.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="#" class="logo">Kevin <span>Sanchez Ramos</span></a>
-    <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="resume.pdf" target="_blank">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero" id="home">
-    <div class="hero-grid-bg"></div>
-    <p class="hero-tag">Engineering Portfolio</p>
-    <h1>Kevin<br><span>Sanchez Ramos</span></h1>
-    <p class="hero-sub">Mechanical Design & Systems Engineering — UCF Aerospace Engineering</p>
-    <p class="hero-desc">
-      Aerospace Engineering student at the University of Central Florida graduating Spring 2028. I enjoy building things from Rockets, Planes, Drones, Satellites and Communication Subsystems! I specialize in researching, designing, and testing complex systems such as control gyros and enjoy tinkering and improving machines.
-    </p>
-
-    <!-- Skill Pills -->
-    <div class="pills">
-      <span class="pill">SolidWorks</span>
-      <span class="pill">Onshape</span>
-      <span class="pill">Fusion 360</span>
-      <span class="pill">OpenRocket</span>
-      <span class="pill">Additive Manufacturing</span>
-      <span class="pill">Soldering</span>
-      <span class="pill gold">C & Python</span>
-    </div>
-
-    <!-- Contact Links -->
-    <div class="hero-contact" id="contact">
-      <a href="mailto:kevinsanchezramos870@gmail.com">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        kevinsanchezramos870@gmail.com
-      </a>
-      <a href="tel:2396878202">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.23 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        (239) 687-8202
-      </a>
-      <a href="#">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Orlando, FL
-      </a>
-    </div>
-  </header>
-
-  <!-- Impact Metrics Bar -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">410 ft</div>
-      <div class="stat-lbl">Max Tethered Altitude</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">120k ft</div>
-      <div class="stat-lbl">HAB Flight Altitude</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">400 lb</div>
-      <div class="stat-lbl">Static Load Tested</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">$115k</div>
-      <div class="stat-lbl">Damage Cost Reduction</div>
-    </div>
-  </div>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="sec-hdr">
-      <div>
-        <p class="sec-lbl">Engineering Portfolio</p>
-        <h2 class="sec-title">Projects</h2>
-        <p class="sec-sub">Hands-on aerospace hardware spanning CubeSat development, HAB missions, and rocketry subsystems.</p>
-      </div>
-      <div class="sec-line"></div>
-    </div>
-
-    <!-- Project Card 1 -->
-    <div class="project-card">
-      <div class="ph">
-        <div>
-          <div class="pm">
-            <span class="pt">KSC · UCF</span>
-            <span class="pt">CubeSat</span>
-            <span class="pd">Sept 2023 – July 2025</span>
-          </div>
-          <h3 class="ptt">Tethered Satellite — T-Sat 0 & 1</h3>
-          <p class="pr">Mechanical Team Lead</p>
+    <nav>
+        <div class="logo">Kevin <span>Sanchez Ramos</span></div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-        <div class="mets">
-          <div class="met">
-            <div class="met-v">1U</div>
-            <div class="met-l">CubeSat Form</div>
-          </div>
-          <div class="met">
-            <div class="met-v">410 ft</div>
-            <div class="met-l">Max Altitude</div>
-          </div>
-          <div class="met">
-            <div class="met-v">80 m</div>
-            <div class="met-l">Deploy Threshold</div>
-          </div>
-          <div class="met">
-            <div class="met-v">3</div>
-            <div class="met-l">Flights</div>
-          </div>
-        </div>
-      </div>
+    </nav>
 
-      <div class="pb">
-        <div class="desc">
-          <p>Tethered-Sat is the Knights Satellite Club's balloon-based 1U CubeSat platform built to give new members end-to-end mission experience within a semester. T-Sat-0 validated the full mission stack: CubeSat bus, spring-activated Parachute Deployment System (PDS), burn-wire tether release, and onboard sensing.</p>
-        </div>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-subtitle">Engineering Portfolio</div>
+            <h1>Kevin<br><span>Sanchez Ramos</span></h1>
+            <h2>Aerospace Engineering – University of Central Florida</h2>
+            
+            <p>Aerospace Engineering student at UCF graduating Spring 2028. I specialize in aviation design, rocketry, and unmanned aerial vehicles. From designing RC planes capable of reaching over 100mph to managing Level 1 High Power Rocketry projects, I lead production teams, author technical reports, and thrive at the intersection of hardware manufacturing and aerospace design.</p>
+            
+            <div class="skills-container">
+                <div class="skill-tag">Onshape & SolidWorks</div>
+                <div class="skill-tag">Additive Manufacturing (FDM)</div>
+                <div class="skill-tag">OpenRocket</div>
+                <div class="skill-tag">C Programming</div>
+                <div class="skill-tag">Soldering</div>
+            </div>
 
-        <!-- Highlight Bullets -->
-        <div class="hl">
-          <div class="hi">
-            <svg class="hic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="ht">Spring-activated PDS with open-top canister; multiple FDM iterations validated by drop testing.</span>
-          </div>
-          <div class="hi">
-            <svg class="hic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="ht">Integrated PCB, servo actuator, burn-wire release, and onboard camera into 1U form factor.</span>
-          </div>
-          <div class="hi gb">
-            <svg class="hic g" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <span class="ht">T-Sat-1 mission success: 125 m max altitude, correct burn-wire release, parachute deploy at 80 m.</span>
-          </div>
-        </div>
-      </div>
+            <div class="contact-info">
+                <div>✉ Kevinsanchezramos870@gmail.com</div>
+                <div>📞 (239) 687-8202</div>
+                <div>📍 Orlando, FL</div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h3>Projects</h3>
+                <p>Hands-on aerospace hardware spanning rocketry, unmanned aerial vehicles, and aviation design.</p>
+            </div>
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="org-tag">AIAA • UCF</span>
+                    <span class="org-tag">AVIATION</span>
+                    <span>Aug 2025 – June 2026</span>
+                </div>
+                <h4 class="project-title">Aviation Design – RC Plane</h4>
+                <div class="project-role">Additive Manufacturing Lead & Aerodynamic Component Lead</div>
+                <div class="project-desc">
+                    Led a 6-person team to design and manufacture an RC plane capable of reaching speeds over 100mph, utilizing advanced additive manufacturing techniques and aerodynamics simulations.
+                </div>
+                <div class="project-bullets">
+                    <div class="bullet-item">Integrated PLA, ABS, and Carbon Fiber (CF), with team members specializing in specific parts based on infill and wall designs.</div>
+                    <div class="bullet-item">Performed simulations and researched airfoil tests to optimize aerodynamic efficiency.</div>
+                    <div class="bullet-item">Maintained comprehensive file reports for rules and regulations compliance.</div>
+                    <div class="bullet-item">Established and managed purchase orders for required project materials.</div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="org-tag">KXR</span>
+                    <span class="org-tag">ROCKETRY</span>
+                    <span>Dec 2025 – July 2026</span>
+                </div>
+                <h4 class="project-title">L1 High Power Rocketry</h4>
+                <div class="project-role">Lead Designer</div>
+                <div class="project-desc">
+                    Designed, built, and successfully completed the NAR Level 1 High Power Rocketry Certification, achieving an altitude of 1700+ ft.
+                </div>
+                <div class="project-bullets">
+                    <div class="bullet-item">Utilized an H182R Motor and OpenRocket flight simulation to validate a max velocity of 529 ft/s and max acceleration of 505 ft/s².</div>
+                    <div class="bullet-item">Managed and financed the project, completing the build under a strict $150 budget.</div>
+                    <div class="bullet-item">Integrated a 30" nylon parachute, standard rail buttons, tubular Kevlar, and fire-resistant blanketing.</div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="org-tag">AIAA • UCF</span>
+                    <span class="org-tag">AEROSPACE</span>
+                    <span>Aug 2025 – June 2026</span>
+                </div>
+                <h4 class="project-title">Quadcopter & Rocket Design</h4>
+                <div class="project-role">Team Production Lead & Research Lead</div>
+                <div class="project-desc">
+                    Concurrent leadership roles managing the design, electrical integration, and CAD modeling of both quadcopters and specialized rocket components.
+                </div>
+                <div class="project-bullets">
+                    <div class="bullet-item">Quadcopter: Led a 4-person team to design and build drones, including soldering electrical components and modeling frames in SolidWorks.</div>
+                    <div class="bullet-item">Rocketry: Researched and produced a PLA nose cone for a rocket reaching over 1000 ft, validated through SolidWorks simulations.</div>
+                    <div class="bullet-item">Managed background information on parachute deploy systems (motor-directed ejection) and ground support equipment.</div>
+                </div>
+            </div>
+
+             <!-- Project 4 -->
+             <div class="project-card">
+                <div class="project-meta">
+                    <span class="org-tag">PERSONAL</span>
+                    <span class="org-tag">UAV / MANUFACTURING</span>
+                    <span>Dec 2025 – Present</span>
+                </div>
+                <h4 class="project-title">Autonomous UAV & RepRapable Recyclebot</h4>
+                <div class="project-role">Independent Hardware Developer</div>
+                <div class="project-desc">
+                    Ongoing independent engineering initiatives focused on advanced surveying technology and sustainable manufacturing hardware.
+                </div>
+                <div class="project-bullets">
+                    <div class="bullet-item">UAV Drone: Developing a UAV aircraft to execute GPS-denied internal mapping while carrying Ground Penetrating Radar (GPR) payloads.</div>
+                    <div class="bullet-item">Recyclebot: Engineering a system to convert recycled plastic bottles into usable filament for future Additive Manufacturing applications.</div>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <div class="sec-hdr">
-      <div>
-        <p class="sec-lbl">Work & Research</p>
-        <h2 class="sec-title">Experience</h2>
-      </div>
-      <div class="sec-line"></div>
-    </div>
-
-    <div class="tl">
-      <div class="tli">
-        <div class="tld">May 2025 – Present</div>
-        <div class="tlt">Vice President – Knights Satellite Club</div>
-        <div class="tlo">University of Central Florida (600+ Members)</div>
-        <p class="tldesc">Leads committee planning for professional development, aerospace employer tours, and logistics for major student conferences.</p>
-      </div>
-      <div class="tli">
-        <div class="tld">Feb 2023 – Apr 2025</div>
-        <div class="tlt">Board Secretary – Knights Satellite Club</div>
-        <div class="tlo">University of Central Florida</div>
-        <p class="tldesc">Managed scheduling, task delegation, outreach materials, and secured sponsorship for club projects.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <div class="sec-hdr">
-      <div>
-        <p class="sec-lbl">Technical Proficiency</p>
-        <h2 class="sec-title">Skills</h2>
-      </div>
-      <div class="sec-line"></div>
-    </div>
-
-    <div class="sgrid">
-      <div class="scat">
-        <div class="scat-t">CAD / Design</div>
-        <ul class="sl">
-          <li>SolidWorks</li>
-          <li>Onshape</li>
-          <li>Fusion 360</li>
-          <li>OpenRocket</li>
-        </ul>
-      </div>
-
-      <div class="scat">
-        <div class="scat-t">Manufacturing</div>
-        <ul class="sl">
-          <li>Additive Manufacturing (3D Printing)</li>
-          <li>Soldering / Wiring</li>
-          <li>Precision Machining</li>
-        </ul>
-      </div>
-
-      <div class="scat">
-        <div class="scat-t">Software & Tools</div>
-        <ul class="sl">
-          <li>C Programming</li>
-          <li>Python</li>
-          <li>Git / GitHub</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="fn">Kevin <span>Sanchez Ramos</span></div>
-    <div class="fl">
-      <a href="#home">Back to top ↑</a>
-    </div>
-  </footer>
 
 </body>
 </html>

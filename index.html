@@ -30,7 +30,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -69,14 +68,12 @@
             color: var(--text-main);
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 5%;
         }
 
-        /* Hero Section */
         .hero-subtitle {
             color: var(--accent-blue);
             font-size: 0.85rem;
@@ -147,23 +144,37 @@
             color: var(--text-muted);
         }
 
-        /* Section Headers */
         .section-header {
             margin: 6rem 0 3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .section-number {
+            color: var(--accent-blue);
+            font-family: monospace;
+            font-size: 1.2rem;
         }
 
         .section-header h3 {
             font-size: 2.5rem;
             color: #ffffff;
-            margin-bottom: 1rem;
+        }
+        
+        .section-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
         }
 
-        .section-header p {
+        .section-desc {
             color: var(--text-muted);
             max-width: 600px;
+            margin-bottom: 2rem;
+            margin-top: -1.5rem;
         }
 
-        /* Project Cards */
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -223,11 +234,198 @@
             font-size: 0.9rem;
         }
 
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .skill-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .skill-card-title {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .skill-card-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-item {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .timeline {
+            border-left: 1px solid var(--border-color);
+            padding-left: 2rem;
+            margin-left: 1rem;
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.35rem; /* Centers dot on the border */
+            top: 0.25rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: monospace;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            color: var(--accent-orange);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .pre-title {
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .resume-download {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .resume-download:hover {
+            color: var(--accent-blue);
+        }
+        
+        .resume-frame {
+            width: 100%;
+            height: 800px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #2d2d2d; /* Fallback color before PDF loads */
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
             .project-bullets { grid-template-columns: 1fr; }
             .contact-info { flex-direction: column; gap: 0.5rem; }
             .nav-links { display: none; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .resume-frame { height: 500px; }
+        }
+
+        /* Footer Section */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 5% 3rem 5%;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-left .footer-name {
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-left .footer-name span {
+            color: var(--accent-orange);
+        }
+
+        .footer-left .footer-subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-right a, .footer-right span {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-family: monospace;
+            transition: color 0.3s;
+        }
+
+        .footer-right a:hover {
+            color: var(--accent-blue);
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -238,6 +436,8 @@
         <div class="nav-links">
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -259,7 +459,7 @@
                 <div class="skill-tag">Soldering</div>
             </div>
 
-            <div class="contact-info">
+            <div class="contact-info" id="contact">
                 <div>✉ Kevinsanchezramos870@gmail.com</div>
                 <div>📞 (239) 687-8202</div>
                 <div>📍 Orlando, FL</div>
@@ -270,9 +470,10 @@
         <section id="projects">
             <div class="section-header">
                 <h3>Projects</h3>
-                <p>Hands-on aerospace hardware spanning rocketry, unmanned aerial vehicles, satellite systems, and aviation design.</p>
+                <div class="line"></div>
             </div>
-
+            <p class="section-desc">Hands-on aerospace hardware spanning rocketry, unmanned aerial vehicles, satellite systems, and aviation design.</p>
+            
             <!-- Project 1: Aviation Design -->
             <div class="project-card">
                 <div class="project-meta">
@@ -293,24 +494,17 @@
                     <div class="bullet-item">Established and managed purchase orders for required project materials.</div>
                 </div>
 
-  <!-- 5-IMAGE GRID CONTAINER (Smaller & Centered) -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-    
-    <img src="AirflowPlane.png" alt="Plane Airflow" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-    
-    <img src="AirfoilPlane.png" alt="Plane side wing flow" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-    
-    <img src="FullPlane.png" alt="Full RC Plane CAD" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-    
-    <img src="GraphPlane.png" alt="Plane Full Design" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-    
-    <!-- 5th Image (Spans across both columns, slightly taller) -->
-    <img src="PlaneReference.png" alt="WW2 Plane Reference" style="grid-column: span 2; width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-    
-</div>
+                <!-- 5-IMAGE GRID CONTAINER -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
+                    <img src="AirflowPlane.png" alt="Plane Airflow" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
+                    <img src="AirfoilPlane.png" alt="Plane side wing flow" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
+                    <img src="FullPlane.png" alt="Full RC Plane CAD" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
+                    <img src="GraphPlane.png" alt="Plane Full Design" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
+                    <img src="PlaneReference.png" alt="WW2 Plane Reference" style="grid-column: span 2; width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
+                </div>
             </div>
 
-          <!-- Project 2: Quadcopter & Rocket Design -->
+            <!-- Project 2: Quadcopter & Rocket Design -->
             <div class="project-card">
                 <div class="project-meta">
                     <span class="org-tag">AIAA • UCF</span>
@@ -328,26 +522,16 @@
                     <div class="bullet-item">Managed background information on parachute deploy systems (motor-directed ejection) and ground support equipment.</div>
                 </div>
 
-                <!-- 6-ITEM MEDIA GRID FOR DRONES & ROCKETS -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    
-                    <!-- Drone Images -->
                     <img src="DroneParts.png" alt="Quadcopter Drone Parts CAD" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="FullDrone.png" alt="Full Quadcopter Drone CAD" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
-                   <!-- Rocket Process Images (Updated for full view) -->
                     <img src="RocketProcess1.png" alt="Rocket Production Process 1" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid var(--border-color); background-color: #161b22;">
-                    
                     <img src="RocketProcess2.png" alt="Rocket Production Process 2" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid var(--border-color); background-color: #161b22;">
-                    <!-- Rocket Deploy Image & Launch Video -->
                     <img src="RocketDeploy.png" alt="Rocket Parachute Deployment" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <video style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #000000;" controls>
                         <source src="RocketLaunch.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    
                 </div>
             </div>
 
@@ -369,17 +553,11 @@
                     <div class="bullet-item">Integrated a 30" nylon parachute, standard rail buttons, tubular Kevlar, and fire-resistant blanketing.</div>
                 </div>
 
-                <!-- 4-IMAGE GRID CONTAINER -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    
                     <img src="L1Full.png" alt="L1 Rocket Full Assembly" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="L1Loaded.png" alt="L1 Rocket Loaded Assembly" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="L1NoseBottom.png" alt="L1 Rocket Nose Cone Bottom Base" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="L1NoseCone.png" alt="L1 Rocket Nose Cone" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                 </div>
             </div>
 
@@ -400,18 +578,11 @@
                     <div class="bullet-item">Researched and evaluated control gyros, reaction wheels, and control moment gyroscopes for attitude control.</div>
                 </div>
 
-                <!-- 4-IMAGE GRID CONTAINER -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    
                     <img src="KSCCameraFishEye.png" alt="KAOS Camera Fisheye Lens" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
-                    <!-- Note: Matched the exact spelling from your GitHub upload (Gryo instead of Gyro) -->
                     <img src="KSCGryoInternal.png" alt="KAOS Internal Gyroscope" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="KSCGyro.png" alt="KAOS Gyroscope Assembly" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                     <img src="KSCOtherG.png" alt="KAOS Additional Gyro Hardware" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                 </div>
             </div>
 
@@ -432,19 +603,186 @@
                     <div class="bullet-item">Recyclebot: Engineering a RepRapable machine to convert recycled plastic bottles into usable filament for future Additive Manufacturing.</div>
                 </div>
 
-                <!-- 2-IMAGE GRID CONTAINER FOR PERSONAL PROJECTS -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    
-                    <!-- Recyclebot / 3D Print Image -->
                     <img src="PE3D.png" alt="Recyclebot 3D Design Concept" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
-                    <!-- Drone Idea Image -->
                     <img src="PEDroneIdea.png" alt="UAV Drone Concept Design" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background-color: #ffffff;">
-                    
                 </div>
             </div>
         </section>
+        
+        <!-- SKILLS & TOOLS SECTION -->
+        <section id="skills">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h3>Skills & Tools</h3>
+                <div class="line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Certifications -->
+                <div class="skill-card">
+                    <div class="skill-card-title">Certifications</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">CSWA - Certified SolidWorks Associate</div>
+                    </div>
+                </div>
+
+                <!-- CAD & Design -->
+                <div class="skill-card">
+                    <div class="skill-card-title">CAD & Design</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">SolidWorks</div>
+                        <div class="skill-item">Siemens NX</div>
+                        <div class="skill-item">GD&T (ASME Y14.5)</div>
+                        <div class="skill-item">Technical Drawing</div>
+                        <div class="skill-item">Tolerance Stack-Up</div>
+                        <div class="skill-item">DFM</div>
+                    </div>
+                </div>
+
+                <!-- Analysis -->
+                <div class="skill-card">
+                    <div class="skill-card-title">Analysis</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">ANSYS - Static Structural</div>
+                        <div class="skill-item">First-Principles Sizing</div>
+                        <div class="skill-item">Shaft & Gear Load Analysis</div>
+                    </div>
+                </div>
+
+                <!-- Electronics -->
+                <div class="skill-card">
+                    <div class="skill-card-title">Electronics</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">Radar & 400 Hz Power Systems</div>
+                        <div class="skill-item">BLDC Motor Control (VESC)</div>
+                        <div class="skill-item">Load Cells</div>
+                        <div class="skill-item">Thermocouples</div>
+                        <div class="skill-item">IMU</div>
+                        <div class="skill-item">Data Acquisition</div>
+                        <div class="skill-item">Oscilloscope</div>
+                        <div class="skill-item">Soldering</div>
+                    </div>
+                </div>
+
+                <!-- Software -->
+                <div class="skill-card">
+                    <div class="skill-card-title">Software</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">Embedded (RP2040 / Raspberry Pi)</div>
+                    </div>
+                </div>
+
+                <!-- Manufacturing -->
+                <div class="skill-card">
+                    <div class="skill-card-title">Manufacturing</div>
+                    <div class="skill-card-items">
+                        <div class="skill-item">Manual Lathe & Mill</div>
+                        <div class="skill-item">CNC Plasma</div>
+                        <div class="skill-item">SheetCAM</div>
+                        <div class="skill-item">FDM</div>
+                        <div class="skill-item">Fixture Design</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <div class="section-header" style="flex-direction: column; align-items: flex-start; gap: 0;">
+                <span class="pre-title">WORK & RESEARCH</span>
+                <div style="display: flex; width: 100%; align-items: center; gap: 1.5rem;">
+                    <h3 style="margin-bottom: 0;">Experience</h3>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <!-- Entry 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2025 – Present</div>
+                    <div class="timeline-title">Vice President — Knights Satellite Club</div>
+                    <div class="timeline-org">University of Central Florida (600+ Members)</div>
+                    <div class="timeline-desc">
+                        Leads the Events Committee planning 4+ professional development initiatives per semester, arranging aerospace employer site tours, and managing logistics. Organized club attendance at two major conferences with 30+ members; established technical workshops and 10+ social events each semester.
+                    </div>
+                </div>
+
+                <!-- Entry 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Feb 2023 – Apr 2025</div>
+                    <div class="timeline-title">Board Secretary — Knights Satellite Club</div>
+                    <div class="timeline-org">University of Central Florida</div>
+                    <div class="timeline-desc">
+                        Managed scheduling, minutes, and task delegation for a 600+ member organization. Produced outreach materials and social media campaigns driving net growth of 50+ students per semester. Secured $1k+ in sponsorships annually; maintained club website and wiki.
+                    </div>
+                </div>
+
+                <!-- Entry 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Nov 2022 – Apr 2025</div>
+                    <div class="timeline-title">Undergraduate Research Assistant</div>
+                    <div class="timeline-org">Structural Dynamics & Adaptive Structures Research Lab — UCF</div>
+                    <div class="timeline-desc">
+                        Performed dynamic mesh CFD simulations on Ansys Fluent to improve mass flow efficiency for a high-bandwidth aeromechanical identification methodology turbomachinery project. Collaborated on vibration durability tests using a $30,000 shaker table and $15,000 laser Doppler vibrometer to measure natural frequency shifts and modal damping; processed time-series data to extract modal parameters.
+                    </div>
+                </div>
+
+                <!-- Entry 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">June 2023 – August 2023</div>
+                    <div class="timeline-title">X-Force Fellow • Aerospace Engineering Intern</div>
+                    <div class="timeline-org">National Security Innovation Network - Robins Air Force Base</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME SECTION -->
+        <section id="resume">
+            <div class="section-header">
+                <h3>Resume</h3>
+                <div class="line"></div>
+            </div>
+            
+            <!-- 
+                PDF EMBED INSTRUCTIONS:
+                1. Place your actual resume PDF inside the same folder as this HTML file.
+                2. Rename your PDF to "Kevin_Sanchez_Ramos_Resume.pdf" OR update the 'href' and 'src' attributes below to perfectly match your file's name.
+                3. The browser will automatically embed it within this frame.
+            -->
+            <a href="Kevin_Sanchez_Ramos_Resume.pdf" class="resume-download" download>↓ Download PDF</a>
+            <iframe src="Kevin_Sanchez_Ramos_Resume.pdf" class="resume-frame" title="Kevin Sanchez Ramos Resume">
+                <!-- Fallback content if browser doesn't support iframes or PDF embeds -->
+                <p>It appears your browser doesn't support embedded PDFs. <a href="Kevin_Sanchez_Ramos_Resume.pdf">Click here to download the PDF</a>.</p>
+            </iframe>
+        </section>
     </div>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-left">
+            <div class="footer-name">Kevin <span>Sanchez Ramos</span></div>
+            <div class="footer-subtitle">Aerospace Engineering &bull; UCF &bull; Orlando, FL</div>
+        </div>
+        <div class="footer-right">
+            <span>Kevinsanchezramos870@gmail.com</span>
+            <span>(239) 687-8202</span>
+            
+            <!-- ========================================================================= -->
+            <!-- ACTION REQUIRED: INSERT YOUR ACTUAL URLS IN THE 'href' ATTRIBUTES BELOW -->
+            <!-- ========================================================================= -->
+            
+            <a href="https://www.linkedin.com/in/YOUR-PROFILE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn &nearr;</a>
+            <a href="https://YOUR-KSC-WIKI-URL-HERE" target="_blank" rel="noopener noreferrer">KSC Wiki &nearr;</a>
+            
+        </div>
+    </footer>
 
 </body>
 </html>

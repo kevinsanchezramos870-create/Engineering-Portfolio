@@ -8,13 +8,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
+            --bg-color: transparent; /* Changed to transparent for canvas */
+            --card-bg: rgba(22, 27, 34, 0.7); /* Semi-transparent for glass effect */
             --text-main: #c9d1d9;
             --text-muted: #8b949e;
             --accent-orange: #f59e0b;
             --accent-blue: #38bdf8;
-            --border-color: #30363d;
+            --border-color: rgba(48, 54, 61, 0.8);
+        }
+
+        #space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-color: #07090f; /* Deep space background */
         }
 
         * {
@@ -35,7 +45,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 2rem 5%;
-            background-color: rgba(13, 17, 23, 0.95);
+            background-color: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(8px); /* Added blur effect */
             position: sticky;
             top: 0;
             z-index: 100;
@@ -70,8 +81,12 @@
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 2rem auto;
             padding: 4rem 5%;
+            background-color: rgba(13, 17, 23, 0.65); /* Translucent container background */
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .hero-subtitle {
@@ -181,6 +196,8 @@
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
+            backdrop-filter: blur(8px); /* Adds a frosted glass effect */
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .project-meta {
@@ -249,6 +266,8 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            backdrop-filter: blur(8px); /* Adds a frosted glass effect */
+            -webkit-backdrop-filter: blur(8px);
         }
         
         .skill-card-title {
@@ -368,6 +387,7 @@
             .nav-links { display: none; }
             .skills-grid { grid-template-columns: 1fr; }
             .resume-frame { height: 500px; }
+            .container { margin: 0 auto; border-radius: 0; border-left: none; border-right: none; }
         }
 
         /* Footer Section */
@@ -377,7 +397,8 @@
             align-items: center;
             padding: 4rem 5% 3rem 5%;
             border-top: 1px solid var(--border-color);
-            background-color: var(--bg-color);
+            background-color: rgba(13, 17, 23, 0.8); /* Semi-transparent footer */
+            backdrop-filter: blur(8px);
             margin-top: 2rem;
             flex-wrap: wrap;
             gap: 1.5rem;
@@ -430,6 +451,8 @@
     </style>
 </head>
 <body>
+
+    <canvas id="space-bg"></canvas>
 
     <nav>
         <div class="logo">Kevin <span>Sanchez Ramos</span></div>
@@ -784,5 +807,82 @@
         </div>
     </footer>
 
+    <script>
+        const canvas = document.getElementById('space-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        // Setup canvas dimensions and initialize particles
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            
+            // Determine number of stars based on screen size to maintain density
+            let numParticles = Math.floor((width * height) / 12000); 
+            
+            for(let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 1.5 + 0.5, // Random star size
+                    vx: (Math.random() - 0.5) * 0.4, // Slow horizontal drift
+                    vy: (Math.random() - 0.5) * 0.4  // Slow vertical drift
+                });
+            }
+        }
+
+        // Draw and animate the space network
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#ffffff';
+            ctx.lineWidth = 0.5;
+
+            for(let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wrap stars around the screen edges for infinite scroll feel
+                if(p.x < 0) p.x = width;
+                if(p.x > width) p.x = 0;
+                if(p.y < 0) p.y = height;
+                if(p.y > height) p.y = 0;
+
+                // Draw the star
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Draw faint connecting lines for satellite network effect
+                for(let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    // Connect stars if they are close enough
+                    if(dist < 130) {
+                        ctx.beginPath();
+                        // Opacity fades as distance increases
+                        let opacity = 1 - (dist / 130);
+                        ctx.strokeStyle = `rgba(140, 160, 200, ${opacity * 0.4})`;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', init);
+        
+        // Start animation
+        init();
+        draw();
+    </script>
 </body>
 </html>

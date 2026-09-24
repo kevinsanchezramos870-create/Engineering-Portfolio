@@ -807,7 +807,7 @@
         </div>
     </footer>
 
-    <script>
+  <script>
         const canvas = document.getElementById('space-bg');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -828,7 +828,12 @@
                     y: Math.random() * height,
                     r: Math.random() * 1.5 + 0.5, // Random star size
                     vx: (Math.random() - 0.5) * 0.4, // Slow horizontal drift
-                    vy: (Math.random() - 0.5) * 0.4  // Slow vertical drift
+                    vy: (Math.random() - 0.5) * 0.4,  // Slow vertical drift
+                    
+                    // New Twinkle properties added:
+                    opacity: Math.random(), // Start with a random initial opacity
+                    fadeSpeed: Math.random() * 0.015 + 0.005, // Random speed for fading in/out
+                    fadeDir: Math.random() > 0.5 ? 1 : -1 // Randomly decide if starting to fade in or fade out
                 });
             }
         }
@@ -836,13 +841,30 @@
         // Draw and animate the space network
         function draw() {
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = '#ffffff';
             ctx.lineWidth = 0.5;
 
             for(let i = 0; i < particles.length; i++) {
                 let p = particles[i];
+                
+                // Update position
                 p.x += p.vx;
                 p.y += p.vy;
+
+                // Update opacity for the twinkling effect
+                p.opacity += p.fadeSpeed * p.fadeDir;
+
+                // Check fade bounds
+                if (p.opacity <= 0) {
+                    p.opacity = 0;
+                    p.fadeDir = 1; // Start fading in
+                    
+                    // Randomize location when completely invisible for a more dynamic field
+                    p.x = Math.random() * width;
+                    p.y = Math.random() * height;
+                } else if (p.opacity >= 1) {
+                    p.opacity = 1;
+                    p.fadeDir = -1; // Start fading out
+                }
 
                 // Wrap stars around the screen edges for infinite scroll feel
                 if(p.x < 0) p.x = width;
@@ -850,8 +872,9 @@
                 if(p.y < 0) p.y = height;
                 if(p.y > height) p.y = 0;
 
-                // Draw the star
+                // Draw the star with its specific current opacity
                 ctx.beginPath();
+                ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
                 ctx.fill();
 
@@ -865,9 +888,17 @@
                     // Connect stars if they are close enough
                     if(dist < 130) {
                         ctx.beginPath();
-                        // Opacity fades as distance increases
-                        let opacity = 1 - (dist / 130);
-                        ctx.strokeStyle = `rgba(140, 160, 200, ${opacity * 0.4})`;
+                        
+                        // Calculate base opacity related to distance
+                        let distOpacity = 1 - (dist / 130);
+                        
+                        // Factor in the average opacity of the two connected stars
+                        let avgStarOpacity = (p.opacity + p2.opacity) / 2;
+                        
+                        // Combine them for the final stroke opacity
+                        let finalOpacity = distOpacity * avgStarOpacity;
+                        
+                        ctx.strokeStyle = `rgba(140, 160, 200, ${finalOpacity * 0.4})`;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
                         ctx.stroke();
